@@ -1,6 +1,6 @@
 <?php
 
-    class Cita {
+    class Cita implements JsonSerializable {
 
         // ATRIBUTOS
         private string $id;
@@ -20,6 +20,7 @@
             $this->tatuador = $tatuador;
         }
 
+        // GETTERS Y SETTERS
         public function getId(): string {
             return $this->id;
         }
@@ -40,6 +41,15 @@
             return $this->tatuador;
         }
 
+        public function jsonSerialize(): array {
+            return [
+                'id' => $this->id,
+                'descripcion' => $this->descripcion,
+                'fecha_cita' => $this->fechaCita,
+                'cliente' => $this->cliente,
+                'tatuador' => $this->tatuador
+            ];
+        }
 
     }
 

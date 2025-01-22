@@ -34,6 +34,11 @@
             // LLAMAR AL MÉTODO DE LANDING CONTROLLER RESPONSABLE DE CARGAR LA PAGINA
             $landingController->cargarVistaLanding();
             break;
+        case "/mvc_plantilla/citas/allCitas":
+            require_once "./controllers/CitaController.php";
+            $controller = new CitaController();
+            $controller->cargarListAllCitas();
+            break;
         default:
             // CARGAR EL CONTROLLER ASOCIADO A MOSTRAR LA PAGINA 404
             require_once "./controllers/NotFoundController.php";

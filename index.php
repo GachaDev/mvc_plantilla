@@ -13,4 +13,32 @@
     - Es minimalista y delega todas las responsabilidades importantes a las capas lógicas del patrón MVC.
     */
 
+    // carga los controladores que necesita
+    
+
+    // NECESITAMOS CAPTURAR LA PETICIÓN
+    /*
+    localhost/mvc_plantilla/landing
+    localhost/mvc_plantilla/login
+    localhost/mvc_plantilla/register
+    localhost/mvc_plantilla/loquesea
+    */
+    $requestUri = $_SERVER["REQUEST_URI"] ?? "";
+
+    // Como ya sabemos a qué URI quiere acceder el cliente, podemos cargar el Controller Asociado
+    switch ($requestUri) {
+        case "/mvc_plantilla/landing":
+            // Cargamos LandingController.php
+            require_once "./controllers/LandingController.php";
+            $landingController = new LandingController();
+            // LLAMAR AL MÉTODO DE LANDING CONTROLLER RESPONSABLE DE CARGAR LA PAGINA
+            $landingController->cargarVistaLanding();
+            break;
+        default:
+            // CARGAR EL CONTROLLER ASOCIADO A MOSTRAR LA PAGINA 404
+            require_once "./controllers/NotFoundController.php";
+            $controller = new NotFoundController();
+            $controller->cargarVistaNotFound();
+            break;
+    }
 ?>

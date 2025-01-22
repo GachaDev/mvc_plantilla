@@ -39,6 +39,8 @@
             $controller = new CitaController();
             $controller->cargarListAllCitas();
             break;
+        case "/mvc_plantilla/citas":
+            $nombre = $_GET["nombre"];
         default:
             // CARGAR EL CONTROLLER ASOCIADO A MOSTRAR LA PAGINA 404
             require_once "./controllers/NotFoundController.php";

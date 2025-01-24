@@ -9,7 +9,7 @@
             $this->handleJson = new HandleJson($rutaFichero);
         }
 
-        public function guardarCitas() { // saveCita
+        public function guardarCitas($datos) { // saveCita
             // TODO
         }
 

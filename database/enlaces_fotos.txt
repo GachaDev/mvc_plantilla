@@ -1,0 +1,7 @@
+<img src="https://cdn.pixabay.com/photo/2018/10/09/16/23/portrait-3735344_960_720.jpg" alt="chica1">
+<img src="https://cdn.pixabay.com/photo/2025/01/24/10/38/10-38-12-421_960_720.jpg" alt="samurai">
+<img src="https://cdn.pixabay.com/photo/2017/08/06/10/26/woman-2591043_960_720.jpg" alt="chica2">
+<img src="https://cdn.pixabay.com/photo/2016/01/28/14/53/tattoo-1166357_960_720.jpg" alt="chico1">
+<img src="https://cdn.pixabay.com/photo/2022/06/10/16/05/girlie-7254832_960_720.jpg" alt="chica3">
+<img src="https://cdn.pixabay.com/photo/2017/08/06/09/32/people-2590677_960_720.jpg" alt="chico2">
+<img src="https://cdn.pixabay.com/photo/2018/07/16/23/23/tattoo-3543229_960_720.jpg" alt="chico3">

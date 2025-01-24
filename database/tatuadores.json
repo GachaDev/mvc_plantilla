@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Maria",
+        "email": "maria@gmail.com",
+        "password": "1234",
+        "foto": "https://cdn.pixabay.com/photo/2017/08/06/10/26/woman-2591043_960_720.jpg"
+    },
+    {
+        "nombre": "Pedro",
+        "email": "pedro@gmail.com",
+        "password": "1234",
+        "foto": "https://cdn.pixabay.com/photo/2017/08/06/09/32/people-2590677_960_720.jpg"
+    }
+]

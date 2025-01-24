@@ -24,9 +24,10 @@
     localhost/mvc_plantilla/loquesea
     */
     $requestUri = $_SERVER["REQUEST_URI"] ?? "";
+    $parseUri = parse_url($requestUri);
 
     // Como ya sabemos a qué URI quiere acceder el cliente, podemos cargar el Controller Asociado
-    switch ($requestUri) {
+    switch ($parseUri["path"]) {
         case "/mvc_plantilla/landing":
             // Cargamos LandingController.php
             require_once "./controllers/LandingController.php";
@@ -39,8 +40,22 @@
             $controller = new CitaController();
             $controller->cargarListAllCitas();
             break;
+        case "/mvc_plantilla/citas/alta":
+            require_once "./controllers/CitaController.php";
+            $controller = new CitaController();
+
+            // Aquí tenemos que controlar qué tipo de petición estamos recibiendo
+            /*
+                si la petición es GET -> Significa que cargamos el formulario y ya está
+                    $controller->cargarAltaCitaView()
+                si la petición es POST -> Significa que almacenamos la cita
+                    $controller->realizarAltaCita($_POST);
+            */
+            
+            break;
         case "/mvc_plantilla/citas":
             $nombre = $_GET["nombre"];
+            break;
         default:
             // CARGAR EL CONTROLLER ASOCIADO A MOSTRAR LA PAGINA 404
             require_once "./controllers/NotFoundController.php";

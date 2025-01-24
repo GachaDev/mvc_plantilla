@@ -10,7 +10,7 @@
         }
 
         public function guardarCitas($datos) { // saveCita
-            // TODO
+            $this->handleJson->saveToJson($datos);
         }
 
         public function leerCitas() { // getAllCitas

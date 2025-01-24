@@ -44,6 +44,8 @@
             require_once "./controllers/CitaController.php";
             $controller = new CitaController();
 
+            
+
             // Aquí tenemos que controlar qué tipo de petición estamos recibiendo
             /*
                 si la petición es GET -> Significa que cargamos el formulario y ya está
@@ -51,6 +53,21 @@
                 si la petición es POST -> Significa que almacenamos la cita
                     $controller->realizarAltaCita($_POST);
             */
+
+            $requestMethod = $_SERVER["REQUEST_METHOD"] ?? ""; // REQUEST_METHOD nos da GET, POST o.... la que venga
+            
+            if($requestMethod == "POST") {
+                // GUARDAR LA CITA
+                $controller->guardarCita($_POST);
+            } elseif ($requestMethod == "GET") {
+                // MOSTRAR EL FORM
+                $controller->cargarAltaCitaView();
+            } else {
+                // CARGAR EL CONTROLLER ASOCIADO A MOSTRAR LA PAGINA 404
+                require_once "./controllers/NotFoundController.php";
+                $controller = new NotFoundController();
+                $controller->cargarVistaNotFound();
+            }
             
             break;
         case "/mvc_plantilla/citas":

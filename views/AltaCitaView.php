@@ -17,10 +17,12 @@
 
     <main class="body__main">
         <!-- IF PARA COMPROBAR ERRORES EN EL ALTA -->
-        
+        <?php if (isset($error) && $error): ?>
+            <H2>CITA NO DISPONIBLE</H2>
+        <?php endif; ?>
 
         <!-- CAMBIAR EL ACTION PARA QUE REDIRECCIONE A UNA URI EN CONCRETO -> POR EJEMPLO A /mvc_plantilla/citas/alta -->
-        <form class="main__form-plantilla" action="****MODIFICAR ACTION*****" method="post">
+        <form class="main__form-plantilla" action="/mvc_plantilla/citas/alta" method="post">
             <div class="form-plantilla__container">
                 <div class="form-group">
                     <label for="input_id">Id</label>
@@ -29,15 +31,6 @@
                         id="input_id" name="input_id"
                         aria-describedby="id"
                         placeholder="Introduce el id">
-                </div>
-                <div class="form-group">
-                    <label for="input_nombre">Nombre</label>
-                    <input type="text"
-                        class="shadow form-control "
-                        id="input_nombre"
-                        name="input_nombre"
-                        aria-describedby="nombre"
-                        placeholder="Introduce tu nombre">
                 </div>
                 <div class="form-group">
                     <label for="input_descripcion">Descripcion</label>

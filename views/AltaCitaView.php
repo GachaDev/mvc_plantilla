@@ -60,11 +60,14 @@
                 </div>
                 <div class="form-group">
                     <label for="input_tatuador">Nombre tatuador</label>
-                    <input type="text"
-                        class="shadow form-control "
-                        id="input_tatuador"
-                        name="input_tatuador"
-                        placeholder="Nombre tatuador">
+                    <select class="shadow form-select" name="input_tatuador" id="input_tatuador">
+                        <option value="" selected>-Elige tatuador-</option>
+                        <?php if (isset($tatuadores)): ?>
+                            <?php foreach ($tatuadores as $tatuador): ?>
+                                <option value="<?= $tatuador["nombre"] ?>"><?= $tatuador["nombre"] ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>                
                 </div>
                 <div class="form-group container__btns-form">
                     <button type="submit" class="btn btn-primary btns-form__btn-enviar">Enviar</button>

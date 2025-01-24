@@ -1,14 +1,17 @@
 <?php
 
     require_once "./models/CitaModel.php";
+    require_once "./models/TatuadorModel.php";
     require_once "./models/Cita.php";
     class CitaController {
 
         // NECESITAMOS LOS MODELOS QUE SE USEN
         private $citaModel;
+        private $tatuadorModel;
 
         public function __construct() {
             $this->citaModel = new CitaModel("./database/citas.json");
+            $this->tatuadorModel = new TatuadorModel("./database/tatuadores.json");
         }
 
         public function cargarListAllCitas() {
@@ -24,6 +27,9 @@
 
 
         public function cargarAltaCitaView($error = false) {
+
+            $tatuadores = $this->tatuadorModel->leerTatuadores();
+
             require_once "./views/AltaCitaView.php";
         }
 

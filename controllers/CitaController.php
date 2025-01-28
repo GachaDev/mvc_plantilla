@@ -81,7 +81,6 @@
             } else {
                 // ERROR
                 if (!$postData["input_id"]) {
-                    echo "ERROR ID";
                     $error["error_id"] = "El id es obligatorio";
                 }
                 if (!isset($postData["input_descripcion"]) || strlen(trim($postData["input_descripcion"]) == 0)) {
@@ -96,9 +95,6 @@
                 if (!isset($postData["input_tatuador"]) || strlen(trim($postData["input_tatuador"]) == 0)) {
                     $error["error_tatuador"] = "El nombre del tatuador es obligatorio";
                 }
-
-                print_r($error);
-
                 $this->cargarAltaCitaView($error);
             }
         }

@@ -26,7 +26,7 @@
         }
 
 
-        public function cargarAltaCitaView($error = false) {
+        public function cargarAltaCitaView($error = []) {
 
             $tatuadores = $this->tatuadorModel->leerTatuadores();
 
@@ -34,7 +34,7 @@
         }
 
         public function guardarCita($postData = null) {
-
+            $error = [];
             if(isset($postData) 
                 && $postData["input_id"]
                 && $postData["input_descripcion"]
@@ -69,8 +69,8 @@
 
                         require_once "./views/AltaCitaCorrectaView.php";
                     } else {
-                        // ERROR
-                        $error = true;
+
+                        $error["error_cita_duplicada"] = "CITA NO DISPONIBLE";
                         $this->cargarAltaCitaView($error);
                     }
                     
@@ -78,6 +78,28 @@
 
                     
 
+            } else {
+                // ERROR
+                if (!$postData["input_id"]) {
+                    echo "ERROR ID";
+                    $error["error_id"] = "El id es obligatorio";
+                }
+                if (!isset($postData["input_descripcion"]) || strlen(trim($postData["input_descripcion"]) == 0)) {
+                    $error["error_descripcion"] = "La descripcion es obligatoria";
+                }
+                if (!isset($postData["input_fecha_cita"]) || strlen(trim($postData["input_fecha_cita"]) == 0)) {
+                    $error["error_fecha_cita"] = "La fecha es obligatoria";
+                }
+                if (!isset($postData["input_cliente"]) || strlen(trim($postData["input_cliente"]) == 0)) {
+                    $error["error_cliente"] = "El nombre del cliente es obligatorio";
+                }
+                if (!isset($postData["input_tatuador"]) || strlen(trim($postData["input_tatuador"]) == 0)) {
+                    $error["error_tatuador"] = "El nombre del tatuador es obligatorio";
+                }
+
+                print_r($error);
+
+                $this->cargarAltaCitaView($error);
             }
         }
 

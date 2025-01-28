@@ -26,19 +26,5 @@
         "fecha_cita": "31-01-2025 12:00:0",
         "cliente": "Diego",
         "tatuador": "Pepe"
-    },
-    {
-        "id": "6",
-        "descripcion": "Amor de madre en el brazo",
-        "fecha_cita": "29-01-2025 12:00:0",
-        "cliente": "Alfonso",
-        "tatuador": "Pepe"
-    },
-    {
-        "id": "10",
-        "descripcion": "Chatgpt en la nuca",
-        "fecha_cita": "28-01-2025 12:00:0",
-        "cliente": "Sergio",
-        "tatuador": "Pepe"
     }
 ]

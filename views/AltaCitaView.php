@@ -17,7 +17,7 @@
 
     <main class="body__main">
         <!-- IF PARA COMPROBAR ERRORES EN EL ALTA -->
-        <?php if (isset($error) && $error): ?>
+        <?php if (isset($error) && isset($error["error_cita_duplicada"])): ?>
             <H2>CITA NO DISPONIBLE</H2>
         <?php endif; ?>
 
@@ -31,6 +31,7 @@
                         id="input_id" name="input_id"
                         aria-describedby="id"
                         placeholder="Introduce el id">
+                    <?php if (isset($error) && isset($error["error_id"])): ?><small id="idError" class="form-text text-danger"><?= $error["error_id"] ?></small><?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label for="input_descripcion">Descripcion</label>
@@ -40,6 +41,7 @@
                         name="input_descripcion"
                         aria-describedby="descripcion"
                         placeholder="Introduce tu idea">
+                    <?php if (isset($error) && isset($error["error_descripcion"])): ?><small id="descripcionError" class="form-text text-danger"><?= $error["error_descripcion"] ?></small><?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label for="input_fecha_cita">Fecha y hora para la cita</label>
@@ -49,6 +51,7 @@
                         name="input_fecha_cita"
                         aria-describedby="fechacita"
                         placeholder="Introduce la fecha y hora">
+                    <?php if (isset($error) && isset($error["error_fecha_cita"])): ?><small id="fechaError" class="form-text text-danger"><?= $error["error_fecha_cita"] ?></small><?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label for="input_cliente">Nombre cliente</label>
@@ -57,6 +60,7 @@
                         id="input_cliente"
                         name="input_cliente"
                         placeholder="Nombre cliente">
+                    <?php if (isset($error) && isset($error["error_cliente"])): ?><small id="clienteError" class="form-text text-danger"><?= $error["error_cliente"] ?></small><?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label for="input_tatuador">Nombre tatuador</label>
@@ -67,7 +71,8 @@
                                 <option value="<?= $tatuador["nombre"] ?>"><?= $tatuador["nombre"] ?></option>
                             <?php endforeach; ?>
                         <?php endif; ?>
-                    </select>                
+                    </select>
+                    <?php if (isset($error) && isset($error["error_tatuador"])): ?><small id="tatuadorError" class="form-text text-danger"><?= $error["error_tatuador"] ?></small><?php endif; ?>
                 </div>
                 <div class="form-group container__btns-form">
                     <button type="submit" class="btn btn-primary btns-form__btn-enviar">Enviar</button>

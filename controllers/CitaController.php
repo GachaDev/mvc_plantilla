@@ -11,7 +11,7 @@
 
         public function __construct() {
             $this->citaModel = new CitaModel("./database/citas.json");
-            $this->tatuadorModel = new TatuadorModel("./database/tatuadores.json");
+            $this->tatuadorModel = new TatuadorModel();
         }
 
         public function cargarListAllCitas() {
@@ -28,7 +28,7 @@
 
         public function cargarAltaCitaView($error = []) {
 
-            $tatuadores = $this->tatuadorModel->leerTatuadores();
+            $tatuadores = $this->tatuadorModel->obtenerUsuarios();
 
             require_once "./views/AltaCitaView.php";
         }
